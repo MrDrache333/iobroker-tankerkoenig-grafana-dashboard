@@ -2,6 +2,8 @@
 
 Dieses Dashboard visualisiert Daten des Tankerkönig Adapters für [ioBroker](https://iobroker.net/) mit einer InfluxDB Datenbank als Datenquelle.
 
+![](dashboard.jpg)
+
 ## Vorraussetzungen
 
 - Grafana 6.7.3 oder höher
