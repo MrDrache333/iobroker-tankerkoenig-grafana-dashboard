@@ -23,4 +23,4 @@ Dieses Dashboard visualisiert Daten des Tankerkönig Adapters für [ioBroker](ht
 
 Das Dashboard sollte nun in der Dashboard-Liste verfügbar sein und kann durch Klicken auf den Namen geöffnet werden.
 
-Das Dashboard enthält Panels, die verschiedene Aspekte der Daten vom Tankerkönig Adapter visualisieren, wie zum Beispiel die Preise verschiedener Treibstofftypen an verschiedenen Tankstellen. Verwende den Zeitbereich-Selector und den Aktualisieren Button in der oberen rechten Ecke, um die angezeigten Daten zu steuern.
+Das Dashboard enthält Panels, die verschiedene Aspekte der Daten vom Tankerkönig Adapter visualisieren, wie zum Beispiel die Preise verschiedener Treibstofftypen an verschiedenen Tankstellen. Verwende den Zeitbereich-Selector und den Aktualisieren Button in der oberen rechten Ecke, um die angezeigten Daten zu steuern. Außerdem lässt sich oben links über das Auswahlfeld "Kraftstoff" die Kraftstoffart auswählen. Zur Auswahl stehen e5, e10 und Diesel
