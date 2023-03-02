@@ -8,8 +8,9 @@ Dieses Dashboard visualisiert Daten des Tankerkönig Adapters für [ioBroker](ht
 
 - Grafana 6.7.3 oder höher
 - InfluxDB Datenbank
-- InfluxDB-Adapter konfiguriert und laufend in ioBroker
 - Tankerkönig Adapter konfiguriert und laufend in ioBroker
+- InfluxDB-Adapter konfiguriert und laufend in ioBroker
+  - Das Dashboard benötigt für jede hinzugefügte Tankstelle den Preis (short), den Namen und den "geöffnet" Status (status). Der Preis hängt von der gewählten Kraftstoffart ab und sollte ebenfalls erfasst werden, um eine korrekte Darstellung im Dashboard zu ermöglichen.
 
 ## Installation
 
