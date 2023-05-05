@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 17,
-  "iteration": 1671469189727,
+  "iteration": 1683277352635,
   "links": [],
   "panels": [
     {
@@ -230,7 +230,7 @@
           "groupBy": [
             {
               "params": [
-                "5m"
+                "7d"
               ],
               "type": "time"
             },
@@ -246,7 +246,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT mode(\"value\") FROM \"tankerkoenig.0.stations.cheapest.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(none)",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -354,7 +354,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT max(\"value\") FROM \"tankerkoenig.0.stations.0.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -393,7 +393,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT max(\"value\") FROM \"tankerkoenig.0.stations.1.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -432,7 +432,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT max(\"value\") FROM \"tankerkoenig.0.stations.2.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "C",
           "resultFormat": "time_series",
           "select": [
@@ -659,7 +659,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -676,7 +676,7 @@
       ],
       "timeFrom": "7d",
       "timeShift": null,
-      "title": "Preis pro Tankfüllung (45 Liter)",
+      "title": "Preis pro Tankfüllung",
       "transformations": [
         {
           "id": "reduce",
@@ -773,7 +773,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -818,7 +818,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -861,7 +861,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -904,7 +904,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -947,7 +947,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -990,7 +990,187 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Aral",
+          "groupBy": [
+            {
+              "params": [
+                "7d"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT max(\"value\") *$Tank FROM \"tankerkoenig.0.stations.6.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "*$Tank"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Aral",
+          "groupBy": [
+            {
+              "params": [
+                "7d"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT max(\"value\") *$Tank FROM \"tankerkoenig.0.stations.7.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "*$Tank"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Aral",
+          "groupBy": [
+            {
+              "params": [
+                "7d"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT max(\"value\") *$Tank FROM \"tankerkoenig.0.stations.8.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "*$Tank"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Aral",
+          "groupBy": [
+            {
+              "params": [
+                "7d"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT max(\"value\") *$Tank FROM \"tankerkoenig.0.stations.9.$Kraftstoff.feed\" WHERE $timeFilter GROUP BY time(7d) fill(none)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -1001,7 +1181,7 @@
       ],
       "timeFrom": "7d",
       "timeShift": null,
-      "title": "Preis pro Tankfüllung (45 Liter)",
+      "title": "Preis pro Tankfüllung",
       "transformations": [
         {
           "id": "reduce",
@@ -1073,7 +1253,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1096,7 +1276,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1119,7 +1299,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1142,7 +1322,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1165,30 +1345,7 @@
             [
               {
                 "params": [
-                  "*"
-                ],
-                "type": "field"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Markant",
-          "groupBy": [],
-          "hide": false,
-          "measurement": "tankerkoenig.0.stations.5.name",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT * FROM \"tankerkoenig.0.stations.0.status\" WHERE $timeFilter",
-          "rawQuery": false,
-          "refId": "F",
-          "resultFormat": "table",
-          "select": [
-            [
-              {
-                "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1237,6 +1394,10 @@
               {
                 "color": "dark-green",
                 "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": ""
               }
             ]
           },
@@ -1282,7 +1443,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1305,7 +1466,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1328,7 +1489,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1351,7 +1512,7 @@
             [
               {
                 "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1374,30 +1535,7 @@
             [
               {
                 "params": [
-                  "*"
-                ],
-                "type": "field"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Markant",
-          "groupBy": [],
-          "hide": false,
-          "measurement": "tankerkoenig.0.stations.5.status",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT * FROM \"tankerkoenig.0.stations.0.status\" WHERE $timeFilter",
-          "rawQuery": false,
-          "refId": "F",
-          "resultFormat": "table",
-          "select": [
-            [
-              {
-                "params": [
-                  "*"
+                  "value"
                 ],
                 "type": "field"
               }
@@ -1682,49 +1820,6 @@
               "value": "0"
             }
           ]
-        },
-        {
-          "alias": "Aral",
-          "groupBy": [
-            {
-              "params": [
-                "5m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "F",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "value",
-              "operator": ">",
-              "value": "0"
-            }
-          ]
         }
       ],
       "timeFrom": null,
@@ -1822,7 +1917,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -1873,7 +1968,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -1922,7 +2017,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -1971,7 +2066,7 @@
               },
               {
                 "params": [
-                  "*45"
+                  "*$Tank"
                 ],
                 "type": "math"
               }
@@ -2020,6 +2115,759 @@
               },
               {
                 "params": [
+                  "*$Tank"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Preis pro Tankfüllung",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "$Datasource",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "displayMode": "color-text",
+            "filterable": true,
+            "width": 200
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^value$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.0.name",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.5.name\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.1.name",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.6.name\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.2.name",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.7.name\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.3.name",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.8.name\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.4.name",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.9.name\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "$Datasource",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "displayMode": "color-text",
+            "filterable": true,
+            "width": 200
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "Geöffnet",
+              "to": "",
+              "type": 1,
+              "value": "open"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "text": "Geschlossen",
+              "to": "",
+              "type": 1,
+              "value": "closed"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": ""
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^value$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.0.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.5.status\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.1.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.6.status\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.2.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.7.status\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.3.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.8.status\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Markant",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.4.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"value\" FROM \"tankerkoenig.0.stations.9.status\" WHERE $timeFilter",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "$Datasource",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 2,
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "",
+              "to": "",
+              "type": 1
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.0.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.5.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.1.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.6.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.2.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.7.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.3.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.8.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.4.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.9.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "stat"
+    },
+    {
+      "datasource": "$Datasource",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "",
+              "to": "",
+              "type": 1
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.2",
+      "targets": [
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.0.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mode(\"value\") *$Tank FROM \"tankerkoenig.0.stations.5.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mode"
+              },
+              {
+                "params": [
                   "*45"
                 ],
                 "type": "math"
@@ -2035,7 +2883,7 @@
           ]
         },
         {
-          "alias": "Aral",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2050,10 +2898,165 @@
               "type": "fill"
             }
           ],
-          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "measurement": "tankerkoenig.0.stations.1.$Kraftstoff.feed",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "F",
+          "query": "SELECT mode(\"value\") *$Tank FROM \"tankerkoenig.0.stations.6.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mode"
+              },
+              {
+                "params": [
+                  "*45"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.2.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mode(\"value\") *$Tank FROM \"tankerkoenig.0.stations.7.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mode"
+              },
+              {
+                "params": [
+                  "*45"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.3.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mode(\"value\") *$Tank FROM \"tankerkoenig.0.stations.8.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mode"
+              },
+              {
+                "params": [
+                  "*45"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.4.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mode(\"value\") *$Tank FROM \"tankerkoenig.0.stations.9.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "E",
           "resultFormat": "time_series",
           "select": [
             [
@@ -2086,7 +3089,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Preis pro Tankfüllung (45 Liter)",
+      "title": "Preis pro Tankfüllung",
       "transparent": true,
       "type": "stat"
     },
@@ -2097,7 +3100,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 24
       },
       "id": 19,
       "panels": [],
@@ -2143,7 +3146,7 @@
         "h": 11,
         "w": 18,
         "x": 0,
-        "y": 16
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 3,
@@ -2178,7 +3181,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Markant",
+          "alias": "Station 1",
           "groupBy": [
             {
               "params": [
@@ -2224,7 +3227,7 @@
           ]
         },
         {
-          "alias": "Score",
+          "alias": "Station 2",
           "groupBy": [
             {
               "params": [
@@ -2269,7 +3272,7 @@
           ]
         },
         {
-          "alias": "Esso",
+          "alias": "Station 3",
           "groupBy": [
             {
               "params": [
@@ -2312,7 +3315,7 @@
           ]
         },
         {
-          "alias": "Aral (Schortens)",
+          "alias": "Station 4",
           "groupBy": [
             {
               "params": [
@@ -2355,7 +3358,7 @@
           ]
         },
         {
-          "alias": "Aral (WHV - Ebkerige)",
+          "alias": "Station 5",
           "groupBy": [
             {
               "params": [
@@ -2398,7 +3401,7 @@
           ]
         },
         {
-          "alias": "Aral (WHV - Gökerstr.)",
+          "alias": "Station 6",
           "groupBy": [
             {
               "params": [
@@ -2417,6 +3420,186 @@
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Station 7",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.6.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Station 8",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.7.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Station 9",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.8.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Station 10",
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.9.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(5m) fill(previous)",
+          "rawQuery": true,
+          "refId": "J",
           "resultFormat": "time_series",
           "select": [
             [
@@ -2560,7 +3743,7 @@
         "h": 3,
         "w": 6,
         "x": 18,
-        "y": 16
+        "y": 25
       },
       "id": 20,
       "options": {
@@ -2580,7 +3763,7 @@
       "pluginVersion": "7.2.2",
       "targets": [
         {
-          "alias": "Markant",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2626,7 +3809,7 @@
           ]
         },
         {
-          "alias": "Score",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2672,7 +3855,7 @@
           ]
         },
         {
-          "alias": "Esso",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2716,7 +3899,7 @@
           ]
         },
         {
-          "alias": "Aral (Jever)",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2762,7 +3945,7 @@
           ]
         },
         {
-          "alias": "Aral (WHV - Ebkerige)",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2806,7 +3989,7 @@
           ]
         },
         {
-          "alias": "Aral (WHV - Gökerstr.)",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -2826,6 +4009,190 @@
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "24h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.6.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(24h) fill(previous)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "24h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.7.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(24h) fill(previous)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "24h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.8.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(24h) fill(previous)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "value",
+              "operator": ">",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "24h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "tankerkoenig.0.stations.5.$Kraftstoff.feed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"tankerkoenig.0.stations.9.$Kraftstoff.feed\" WHERE (\"value\" > 0) AND $timeFilter GROUP BY time(24h) fill(previous)",
+          "rawQuery": true,
+          "refId": "J",
           "resultFormat": "time_series",
           "select": [
             [
@@ -2949,6 +4316,120 @@
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "45",
+          "value": "45"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Tank-Größe (L)",
+        "multi": false,
+        "name": "Tank",
+        "options": [
+          {
+            "selected": false,
+            "text": "10",
+            "value": "10"
+          },
+          {
+            "selected": false,
+            "text": "15",
+            "value": "15"
+          },
+          {
+            "selected": false,
+            "text": "20",
+            "value": "20"
+          },
+          {
+            "selected": false,
+            "text": "25",
+            "value": "25"
+          },
+          {
+            "selected": false,
+            "text": "30",
+            "value": "30"
+          },
+          {
+            "selected": false,
+            "text": "35",
+            "value": "35"
+          },
+          {
+            "selected": false,
+            "text": "40",
+            "value": "40"
+          },
+          {
+            "selected": true,
+            "text": "45",
+            "value": "45"
+          },
+          {
+            "selected": false,
+            "text": "50",
+            "value": "50"
+          },
+          {
+            "selected": false,
+            "text": "55",
+            "value": "55"
+          },
+          {
+            "selected": false,
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "selected": false,
+            "text": "65",
+            "value": "65"
+          },
+          {
+            "selected": false,
+            "text": "70",
+            "value": "70"
+          },
+          {
+            "selected": false,
+            "text": "75",
+            "value": "75"
+          },
+          {
+            "selected": false,
+            "text": "80",
+            "value": "80"
+          },
+          {
+            "selected": false,
+            "text": "85",
+            "value": "85"
+          },
+          {
+            "selected": false,
+            "text": "90",
+            "value": "90"
+          },
+          {
+            "selected": false,
+            "text": "95",
+            "value": "95"
+          },
+          {
+            "selected": false,
+            "text": "100",
+            "value": "100"
+          }
+        ],
+        "query": "10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
       }
     ]
   },
@@ -2967,5 +4448,5 @@
   "timezone": "",
   "title": "Spritpreise",
   "uid": "YU2K7GH7z",
-  "version": 71
+  "version": 79
 }
